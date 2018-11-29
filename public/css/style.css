@@ -20,8 +20,81 @@ html, body {
 
 }
 
+.navbar .navbar-nav {
+
+	margin-top: 7px;
+
+}
+
+.navbar .container {
+
+	padding: 1px;
+
+}
+
 .navbar-brand img {
 
 	width: 40px;
+	margin-top: -5px;
 
+}
+
+.navbar .navbar-nav li {
+
+	margin: 0px 7px; 
+
+}
+
+.navbar .navbar-nav li a {
+
+	color: #529ecc;
+	padding: 5px 15px;
+
+}
+
+.navbar .navbar-nav li a:hover, .navbar .navbar-nav li a:focus {
+
+	color: #0075bb;
+
+}
+
+.navbar .navbar-nav li.push-down a {
+
+	border: 2px solid #529ecc;
+	border-radius: 8px;
+
+}
+
+.navbar .navbar-nav li.push-down a:hover, .navbar .navbar-nav li.push-down a:focus {
+
+	color: white;
+	background-color: #529ecc;
+
+}
+
+.navbar .navbar-form button {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	color: #ccc;
+	border: 0;
+	background: transparent;
+}
+
+.navbar .navbar-form input {
+	padding-left: 30px;
+	border-radius: 8px;
+	width: 150px;
+}
+
+.navbar .navbar-form input:focus {
+	width: 450px;
+}
+
+#register .modal-header {
+	border-bottom: unset;
+}
+
+#register .modal-title {
+	color: black;
 }

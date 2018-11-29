@@ -12,7 +12,6 @@
 
 	<!-- Styles -->
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('/vendor/fortawesome/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -40,25 +39,29 @@
 					&nbsp;
 				</ul>
 
-				<form class="navbar-form navbar-right" action="/auth/search" method="POST">
+				<form class="navbar-form navbar-right" action="#" method="POST">
 					<div class="form-group form-group-search">
 						<input name="search" type="text" class="form-control" placeholder="Look for stories" required="">
-						<button type="submit" class="btn-submit"><i class="fa fa-search"></i></button>
+						<button type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</form>
 
 				<!-- Right Side Of Navbar -->
 				<ul class="nav navbar-nav navbar-right">
 					<!-- Authentication Links -->
-					<li>
+					<li class="navbar-nav-inline">
 						<a href="#">TELL A FRIEND</a>
 					</li>
-					<li>
+					<li class="navbar-nav-inline">
 						<a href="#">WRITE A STORY</a>
 					</li>
 					@guest
-						<li><a href="{{ route('login') }}">Login</a></li>
-						<li><a href="{{ route('register') }}">Register</a></li>
+						<li class="push-down">
+							<a href="#" data-toggle="modal" data-target="#register">SIGN UP</a>
+						</li>
+						<li class="push-down">
+							<a href="#" data-toggle="modal" data-target="#login">SIGN IN</a>
+						</li>
 					@else
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -86,6 +89,9 @@
 	</nav>
 		
 	@yield('content')
+
+	@include('modal.register')
+	@include('modal.login')
 
 
 	<!-- Scripts -->
