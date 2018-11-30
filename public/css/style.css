@@ -98,3 +98,7 @@ html, body {
 #register .modal-title {
 	color: black;
 }
+
+#register .modal-content > p {
+	font-size: 18px;
+}
