@@ -20,6 +20,12 @@ html, body {
 
 }
 
+body {
+
+	padding-top: 53px;
+
+}
+
 .navbar .navbar-nav {
 
 	margin-top: 7px;
@@ -91,14 +97,39 @@ html, body {
 	width: 450px;
 }
 
-#register .modal-header {
+#register .modal-header, #login .modal-header {
 	border-bottom: unset;
 }
 
-#register .modal-title {
+#register .modal-title, #login .modal-title {
 	color: black;
 }
 
-#register .modal-content > p {
+#register .modal-content > p, #login .modal-content > p {
 	font-size: 18px;
+}
+
+.nav-page-holder {
+	background: #f5f5f5;
+}
+
+.nav-page-holder ul.nav-page-list {
+	padding-left: 0;
+	list-style: none;
+	margin: 0;
+}
+
+.nav-page-holder ul.nav-page-list li {
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.nav-page-holder ul.nav-page-list li a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: block;
+}
+
+.nav-page-holder ul.nav-page-list li a.active{
+	border-bottom: 3px solid #529ecc;
 }

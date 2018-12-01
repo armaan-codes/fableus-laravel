@@ -22,6 +22,30 @@
 				&nbsp;
 			</ul>
 
+			@auth
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+						{{ Auth::user()->first_name }} <span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{ route('logout') }}"
+								onclick="event.preventDefault();
+										 document.getElementById('logout-form').submit();">
+								Logout
+							</a>
+
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								{{ csrf_field() }}
+							</form>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			@endauth
+
 			<form class="navbar-form navbar-right" action="#" method="POST">
 				<div class="form-group form-group-search">
 					<input name="search" type="text" class="form-control" placeholder="Look for stories" required="">
@@ -36,7 +60,11 @@
 					<a href="#">TELL A FRIEND</a>
 				</li>
 				<li class="navbar-nav-inline">
-					<a href="#">WRITE A STORY</a>
+					@guest
+						<a href="#" data-toggle="modal" data-target="#register">WRITE A STORY</a>
+					@else
+						<a href="#" data-toggle="modal" data-target="#write">WRITE A STORY</a>
+					@endguest
 				</li>
 				@guest
 					<li class="push-down">
@@ -44,26 +72,6 @@
 					</li>
 					<li class="push-down">
 						<a href="#" data-toggle="modal" data-target="#login">SIGN IN</a>
-					</li>
-				@else
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-							{{ Auth::user()->first_name }} <span class="caret"></span>
-						</a>
-
-						<ul class="dropdown-menu">
-							<li>
-								<a href="{{ route('logout') }}"
-									onclick="event.preventDefault();
-											 document.getElementById('logout-form').submit();">
-									Logout
-								</a>
-
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-									{{ csrf_field() }}
-								</form>
-							</li>
-						</ul>
 					</li>
 				@endguest
 			</ul>

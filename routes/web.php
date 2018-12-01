@@ -18,3 +18,23 @@ Route::get('/', function() {
 });
 
 Auth::routes();
+
+Route::get('/stories', [
+	'uses' => 'StoryController@index',
+	'as' => 'stories'
+]);
+
+Route::post('/story', [
+	'uses' => 'StoryController@create',
+	'as' => 'story.create'
+]);
+
+Route::get('/story/view/{slug}', [
+	'uses' => 'StoryController@show',
+	'as' => 'story.show'
+]);
+
+Route::get('/story/edit/{slug}', [
+	'uses' => 'StoryController@edit',
+	'as' => 'story.edit'
+]);

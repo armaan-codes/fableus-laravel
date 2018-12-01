@@ -16,12 +16,19 @@
 </head>
 <body>
 	@include('layouts.menu')
+
+	@auth
+	@include('layouts.submenu')
+	@endauth
 		
 	@yield('content')
 
-	@include('modal.register')
-	@include('modal.login')
-
+	@guest
+		@include('modal.register')
+		@include('modal.login')
+	@else
+		@include('modal.write')
+	@endguest
 
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}"></script>
